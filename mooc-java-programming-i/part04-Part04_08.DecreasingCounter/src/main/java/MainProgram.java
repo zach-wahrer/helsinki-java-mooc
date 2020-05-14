@@ -7,5 +7,8 @@ public class MainProgram {
         counter.printValue();
         counter.decrement();
         counter.decrement();
+        counter.printValue();
+        counter.reset();
+        counter.printValue();
     }
 }
