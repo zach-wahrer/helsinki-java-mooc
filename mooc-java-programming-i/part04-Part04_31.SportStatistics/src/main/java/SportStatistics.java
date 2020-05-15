@@ -19,8 +19,6 @@ public class SportStatistics {
         System.out.println("Wins: " + team.getWins());
         System.out.println("Losses: " + team.getLosses());
         
-        
-        
     }
     
     public static Team teamRecordFromCSV(String fileName, String teamName) {
