@@ -9,20 +9,59 @@ public class PaymentTerminal {
 
     public PaymentTerminal() {
         // register initially has 1000 euros of money
+        this.money = 1000;
+        this.affordableMeals = 0;
+        this.heartyMeals = 0;
     }
 
     public double eatAffordably(double payment) {
         // an affordable meal costs 2.50 euros
         // increase the amount of cash by the price of an affordable mean and return the change
         // if the payment parameter is not large enough, no meal is sold and the method should return the whole payment
-        return -1;
+        if (payment < 2.5) {
+            return payment;
+        }
+        
+        this.affordableMeals += 1;
+        this.money += 2.5;        
+        return payment - 2.5;
     }
 
     public double eatHeartily(double payment) {
         // a hearty meal costs 4.30 euros
         // increase the amount of cash by the price of a hearty mean and return the change
         // if the payment parameter is not large enough, no meal is sold and the method should return the whole payment
-        return -1;
+        if (payment < 4.3) {
+            return payment;
+        }
+        
+        this.heartyMeals += 1;
+        this.money += 4.3;
+        return payment - 4.3;
+    }
+    
+    public boolean eatAffordably(PaymentCard card) {
+        boolean success = card.takeMoney(2.5);
+        if (success) {
+            this.affordableMeals += 1;
+        }
+        return success;
+    }
+    
+    public boolean eatHeartily(PaymentCard card) {
+        boolean success = card.takeMoney(4.3);
+        if (success) {
+            this.heartyMeals += 1;
+        }
+        return success;
+    }
+    
+    public void addMoneyToCard(PaymentCard card, double incomingFunds) {
+        if (incomingFunds < 0) {
+            return;
+        }
+        this.money += incomingFunds;
+        card.addMoney(incomingFunds);
     }
 
 
