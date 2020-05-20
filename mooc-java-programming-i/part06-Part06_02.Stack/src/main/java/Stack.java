@@ -29,10 +29,8 @@ public class Stack {
         return this.stackData;
     }
     
-    public String take() {
-        String popValue = this.stackData.get(this.stackData.size() - 1); 
-        this.stackData.remove(this.stackData.size() - 1);
-        return popValue;
+    public String take() {      
+        return this.stackData.remove(this.stackData.size() - 1);
         
     }
 }
