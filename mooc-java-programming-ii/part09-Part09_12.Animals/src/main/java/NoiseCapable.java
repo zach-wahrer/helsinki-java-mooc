@@ -9,5 +9,5 @@
  * @author wolf-media
  */
 public interface NoiseCapable {
-    public void makeNoise();
+    void makeNoise();
 }
