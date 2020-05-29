@@ -35,11 +35,16 @@ public class AverageOfSelectedNumbers {
     }
     
     public static double getAverage(String type, ArrayList<Integer> numbers) {
+        if (numbers.isEmpty()) {
+            return 0.0;
+        }
+        
         if (type.equals("n")) {
             return numbers.stream().mapToInt(s -> s).filter(number -> number < 0).average().getAsDouble();
         } else {
             return numbers.stream().mapToInt(s -> s).filter(number -> number > 0).average().getAsDouble();
         }
+        
     }
     
     public static void print(Object value) {
