@@ -28,6 +28,10 @@ public class Planes {
         return this.planes.get(ID);
     }
     
+    public void printPlane(String ID) {
+        System.out.println(this.planes.get(ID));
+    }
+    
     public ArrayList<Plane> getPlaneList() {
         ArrayList<Plane> planeList = new ArrayList<>();
         for (Plane plane : this.planes.values()) {
@@ -40,7 +44,8 @@ public class Planes {
     public String toString() {
         StringBuilder string = new StringBuilder();
         for (Plane plane : this.planes.values()) {
-            string.append(plane.toString() + "\n");
+            string.append(plane.toString());
+            string.append("\n");
         }
         return string.toString();
     }

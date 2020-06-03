@@ -14,32 +14,21 @@ import java.util.ArrayList;
 
 public class Flights {
     private ArrayList<Flight> flights;
-    private Planes planes;
     
     public Flights() {
         this.flights = new ArrayList<>();
-        this.planes = new Planes();
     }
     
-    public void addPlane(String ID, int capacity) {
-        this.planes.addPlane(ID, capacity);
-    }
-    
-    public void addFlight(String airplaneID, String departureLocation, String targetLocation) {
-        Plane plane = this.planes.getPlane(airplaneID);
-        Flight flight = new Flight(plane, departureLocation, targetLocation);
-        this.flights.add(flight);
-    }
-    
-    public void printPlanes() {
-        System.out.println(this.planes);
+    public void addFlight(Plane plane, String departureLocation, String targetLocation) {
+        this.flights.add(new Flight(plane, departureLocation, targetLocation));
     }
     
     @Override 
     public String toString() {
         StringBuilder string = new StringBuilder();
         for (Flight flight : this.flights) {
-            string.append(flight.toString() + "\n");
+            string.append(flight.toString());
+            string.append("\n");
         }
         return string.toString();
     }
